@@ -17,7 +17,7 @@ const gallery = document.querySelector(".gallery");
 console.log(gallery);
 
 const listItems = images.map(
-  (image) => '<li><img src="${image.url}" alt="${image.alt}"></li>'
+  (image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`
 );
 console.log(listItems);
 gallery.append(...listItems);
