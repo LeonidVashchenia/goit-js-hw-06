@@ -1,0 +1,29 @@
+Подія - це сигнал від браузера про те, що на веб-сторінці щось відбулося.
+mousedown → mouseup → click
+Метод:
+element.addEventListener(event, handler, options);
+element.removeEventListener(event, handler, options);
+ - event - ім'я події
+ - handler - колбек-функція
+ - options - необов'язковий об'єкт параметрів з розширеними налаштуваннями.
+ preventDefault()
+
+
+Кожна подія - це об'єкт, який містить інформацію про деталі події.
+Всі події відбуваються з базового класу Event. Параметр event - це і є об'єкт події.
+
+const button = document.querySelector(".btn");
+
+const handleClick = (event) => {
+  console.log("event: ", event);
+  console.log("event type: ", event.type);
+  console.log("currentTarget: ", event.currentTarget);
+};
+
+button.addEventListener("click", handleClick);
+Події:
+Існує дві основні події клавіатури: keydown і keyup. KeyboardEvent
+document.addEventListener("keydown", event => {
+  console.log("key: ", event.key);
+  console.log("code: ", event.code);
+});

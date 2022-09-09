@@ -14,7 +14,7 @@ elem.nextSibling / elem.nextElementSibling- вибере елемент / вуз
 метод - element.querySelectorAll(selector) - вертає колекцію(псевдомасив) елементів або [].
 метод - document.createElement(tagName) - створює елемент з ім'ям tagName і повертає посилання на нього.
 
-властивість - HTML-атрибути(data-атрибути), textContent, classList, style, innerHTML
+властивість - HTML-атрибути(data-атрибути), textContent, classList, style, innerHTML, disabled(boolean)
 
 value - містить поточний текстовий контент елементів форм.
 checked - зберігає стан чекбокса або радіокнопки.
@@ -32,15 +32,29 @@ data-атрибути додають до тегу довільний атриб
 const saveBtn = document.querySelector('button[data-action="save"]');
 console.log(saveBtn.dataset.action); // "save"
 
-в classList зберігається об'єкт з методами для роботи з класами елемента.
+в classList зберігається об'єкт з методами для роботи з класами елемента. 
 методи classList:
 elem.classList.contains(cls) - повертає true або false
 elem.classList.add(cls) - додає клас cls до списку класів елемента.
 elem.classList.remove(cls) - видаляє клас cls зі списку класів елемента.
 elem.classList.toggle(cls) - якщо відсутній додає клас cls або навпаки - видаляє.
 elem.classList.replace(oldClass, newClass) - замінює існуючий клас.
+className = 'cls' - видалить всі класи і запише .cls
 
-style для читання та зміни інлайнових стилів. Повертає об'єкт CSSStyleDeclaration. element.style.backgroundColor
+style для читання та зміни інлайнових стилів. Повертає об'єкт CSSStyleDeclaration. element.style.backgroundColor.
+style.cssText = 'color: red, font-size: 50px'
+
+innerHTML - вертає весь тексотвий контент з тегами.
+title.innerHTML ='' - очищає
+title.innerHTML ='<p>Абзац</p>' - записується
+elem.insertAdjacentHTML(position, string);
+ - "beforebegin" - перед elem
+ - "afterbegin" - всередині elem, перед усіма дітьми
+ - "beforeend" - всередині elem, після усіх дітей
+ - "afterend" - після elem
+
+const article = document.querySelector(".article");
+console.log(article.innerHTML);
 
 Створення вузла-елемента - document.createElement(tagName);
 
@@ -66,6 +80,3 @@ elem.remove();
 const text = document.querySelector('.text');
 text.remove();
 
-innerHTML
-const article = document.querySelector(".article");
-console.log(article.innerHTML);
