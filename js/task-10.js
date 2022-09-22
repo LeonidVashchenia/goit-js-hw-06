@@ -26,8 +26,10 @@ function createBoxes(amount) {
   boxArea.innerHTML = arr.join("");
 }
 
-buttonGreate.addEventListener("click", createBoxes);
-buttonDestroy.addEventListener("click", () => {
+function destroyBoxes() {
   boxArea.innerHTML = "";
   inputRef.value = "";
-});
+}
+
+buttonGreate.addEventListener("click", createBoxes);
+buttonDestroy.addEventListener("click", destroyBoxes);
