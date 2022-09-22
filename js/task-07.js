@@ -1,13 +1,10 @@
-const refs = {
-  slider: document.querySelector("#font-size-control"),
-  text: document.querySelector("#text"),
-};
+const slider = document.querySelector("#font-size-control");
+const text = document.querySelector("#text");
 
-const INIT_FONT_SIZE = parseInt(window.getComputedStyle(refs.slider).fontSize);
-refs.slider.value = INIT_FONT_SIZE;
+slider.value = slider.getAttribute("min");
 
-function onSliderInput({ currentTarget: { value } }) {
-  refs.text.style.fontSize = `${value}px`;
+function moveSlider() {
+  text.style.fontSize = `${slider.value}px`;
 }
 
-refs.slider.addEventListener("input", onSliderInput);
+slider.addEventListener("input", moveSlider);
